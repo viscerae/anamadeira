@@ -1,49 +1,1852 @@
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem;
-            text-align: center;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            margin-top: 1rem;
-        }
-        nav a {
-            margin: 0 1rem;
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        section {
-            margin-bottom: 3rem;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        .about, .projects, .skills, .contact {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
+element.style {
+}
+:root {
+    --sublinks-shape: calc(var(--min-shape) / 2);
+    --logo-height: 50px;
+    --logo-height-mobile: 20px;
+    --site-width: 1000px;
+    --accent: #758E4F;
+    --shape: var(--r-full);
+    --min-shape: var(--min-r-full);
+    --design-headFont: 'Syne Bold';
+    --design-headWeight: 100;
+    --design-bodyFont: 'Syne regular';
+}
+[data-theme=dark] {
+    --background: var(--c-dark);
+    --foreground: var(--c-light);
+    --c-mix-1: var(--c-gray6);
+    --c-mix-2: var(--c-gray5);
+    --c-mix-3: var(--c-gray3);
+    --c-mix-4: var(--c-overlay-dark);
+    --c-mix-5: var(--c-nav-light);
+    --c-mix-6: var(--c-glass-dark);
+    --c-mix-7: var(--c-pulse-light);
+    --c-mix-8: var(--c-shadow-dark);
+    --c-mix-9: var(--c-gray3);
+    --c-mix-10: var(--c-gray5);
+    --c-mix-11: var(--c-shadow-dark-subtle);
+    --c-mix-12: var(--c-glass-dark-subtle);
+    --c-mix-13: rgba(255, 255, 255, 0.3);
+    --c-mix-14: rgba(33, 33, 33, 0.3);
+    --c-glass-bg: var(--c-glass-dark-2);
+    --c-shine: var(--shine-effect);
+}
+:root {
+    --background: var(--c-light);
+    --foreground: var(--c-dark);
+    --c-mix-1: var(--c-gray1);
+    --c-mix-2: var(--c-gray3);
+    --c-mix-3: var(--c-gray4);
+    --c-mix-4: var(--c-overlay-light);
+    --c-mix-5: var(--c-nav-dark);
+    --c-mix-6: var(--c-glass-light);
+    --c-mix-7: var(--c-pulse-dark);
+    --c-mix-8: var(--c-shadow-light);
+    --c-mix-9: var(--c-gray5);
+    --c-mix-10: var(--c-gray2);
+    --c-mix-11: var(--c-shadow-light-subtle);
+    --c-mix-12: var(--c-glass-light-subtle);
+    --c-mix-13: rgba(255, 255, 255, 1);
+    --c-mix-14: rgba(237, 237, 237, 1);
+    --c-glass-bg: var(--c-glass-light-2);
+    --c-shine: var(--shine-effect-2);
+}
+:root {
+    --unit: 0.625rem;
+    --vh: 1vh;
+    --a-speed: 300ms;
+    --c-light: #FFF;
+    --c-gray1: #EEE;
+    --c-gray2: #CCC;
+    --c-gray3: #999;
+    --c-gray4: #666;
+    --c-gray5: #555;
+    --c-gray6: #222;
+    --c-dark: #111;
+    --c-overlay-light: rgb(0 0 0 / 0.5);
+    --c-overlay-dark: rgb(0 0 0 / 0.8);
+    --c-glass-light: rgba(255, 255, 255, 0.7);
+    --c-glass-dark: rgba(17, 17, 17, 0.7);
+    --c-glass-light-subtle: rgba(255, 255, 255, 0.9);
+    --c-glass-dark-subtle: rgba(17, 17, 17, 0.9);
+    --c-nav-light: rgb(255 255 255 / 0.5);
+    --c-nav-dark: rgb(0 0 0 / 0.5);
+    --c-success: #1b0;
+    --c-error: #f20;
+    --c-pulse-light: 255, 255, 255;
+    --c-pulse-dark: 0, 0, 0;
+    --c-shadow-dark: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+    --c-shadow-dark-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+    --c-glass-dark-2: rgba(0, 0, 0, 0.3);
+    --c-glass-light-2: rgba(0, 0, 0, 0.05);
+    --c-yellow: #FC0;
+    --c-orange: #F80;
+    --c-brown: #A63;
+    --c-red: #F20;
+    --c-pink: #F58;
+    --c-magenta: #B1C;
+    --c-violet: #80F;
+    --c-blue: #08F;
+    --c-cyan: #0BA;
+    --c-green: #0A0;
+    --c-lemon: #AC4;
+    --c-mono: var(--foreground);
+    --f-base: Inter, var(--f-sans);
+    --f-headings: Cormorant, var(--f-serif);
+    --f-body: Inter, var(--f-sans);
+    --f-sans: -apple-system, system-ui, BlinkMacSystemFont, "Helvetica", "Arial", sans-serif;
+    --f-serif: Georgia, "Times New Roman", Times, serif;
+    --f-mono: "Lucida Console", Monaco, monospace;
+    --l-title: 1.2;
+    --l-body: 1.6;
+    --t-xs: 10px;
+Show all properties (38 more)
+}
+[data-theme=dark] {
+    --background: var(--c-dark);
+    --foreground: var(--c-light);
+    --c-mix-1: var(--c-gray6);
+    --c-mix-2: var(--c-gray5);
+    --c-mix-3: var(--c-gray3);
+    --c-mix-4: var(--c-overlay-dark);
+    --c-mix-5: var(--c-nav-light);
+    --c-mix-6: var(--c-glass-dark);
+    --c-mix-7: var(--c-pulse-light);
+    --c-mix-8: var(--c-shadow-dark);
+    --c-mix-9: var(--c-gray3);
+    --c-mix-10: var(--c-gray5);
+    --c-mix-11: var(--c-shadow-dark-subtle);
+    --c-mix-12: var(--c-glass-dark-subtle);
+    --c-mix-13: rgba(255, 255, 255, 0.3);
+    --c-mix-14: rgba(33, 33, 33, 0.3);
+    --c-glass-bg: var(--c-glass-dark-2);
+    --c-shine: var(--shine-effect);
+}
+:root {
+    --background: var(--c-light);
+    --foreground: var(--c-dark);
+    --c-mix-1: var(--c-gray1);
+    --c-mix-2: var(--c-gray3);
+    --c-mix-3: var(--c-gray4);
+    --c-mix-4: var(--c-overlay-light);
+    --c-mix-5: var(--c-nav-dark);
+    --c-mix-6: var(--c-glass-light);
+    --c-mix-7: var(--c-pulse-dark);
+    --c-mix-8: var(--c-shadow-light);
+    --c-mix-9: var(--c-gray5);
+    --c-mix-10: var(--c-gray2);
+    --c-mix-11: var(--c-shadow-light-subtle);
+    --c-mix-12: var(--c-glass-light-subtle);
+    --c-mix-13: rgba(255, 255, 255, 1);
+    --c-mix-14: rgba(237, 237, 237, 1);
+    --c-glass-bg: var(--c-glass-light-2);
+    --c-shine: var(--shine-effect-2);
+}
+:root {
+    --unit: 0.625rem;
+    --vh: 1vh;
+    --a-speed: 300ms;
+    --c-light: #FFF;
+    --c-gray1: #EEE;
+    --c-gray2: #CCC;
+    --c-gray3: #999;
+    --c-gray4: #666;
+    --c-gray5: #555;
+    --c-gray6: #222;
+    --c-dark: #111;
+    --c-overlay-light: rgb(0 0 0 / 0.5);
+    --c-overlay-dark: rgb(0 0 0 / 0.8);
+    --c-glass-light: rgba(255, 255, 255, 0.7);
+    --c-glass-dark: rgba(17, 17, 17, 0.7);
+    --c-glass-light-subtle: rgba(255, 255, 255, 0.9);
+    --c-glass-dark-subtle: rgba(17, 17, 17, 0.9);
+    --c-nav-light: rgb(255 255 255 / 0.5);
+    --c-nav-dark: rgb(0 0 0 / 0.5);
+    --c-success: #1b0;
+    --c-error: #f20;
+    --c-pulse-light: 255, 255, 255;
+    --c-pulse-dark: 0, 0, 0;
+    --c-shadow-dark: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+    --c-shadow-dark-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+    --c-glass-dark-2: rgba(0, 0, 0, 0.3);
+    --c-glass-light-2: rgba(0, 0, 0, 0.05);
+    --c-yellow: #FC0;
+    --c-orange: #F80;
+    --c-brown: #A63;
+    --c-red: #F20;
+    --c-pink: #F58;
+    --c-magenta: #B1C;
+    --c-violet: #80F;
+    --c-blue: #08F;
+    --c-cyan: #0BA;
+    --c-green: #0A0;
+    --c-lemon: #AC4;
+    --c-mono: var(--foreground);
+    --f-base: Inter, var(--f-sans);
+    --f-headings: Cormorant, var(--f-serif);
+    --f-body: Inter, var(--f-sans);
+    --f-sans: -apple-system, system-ui, BlinkMacSystemFont, "Helvetica", "Arial", sans-serif;
+    --f-serif: Georgia, "Times New Roman", Times, serif;
+    --f-mono: "Lucida Console", Monaco, monospace;
+    --l-title: 1.2;
+    --l-body: 1.6;
+    --t-xs: 10px;
+Show all properties (38 more)
+}
+[data-theme=dark] {
+    --background: var(--c-dark);
+    --foreground: var(--c-light);
+    --c-mix-1: var(--c-gray6);
+    --c-mix-2: var(--c-gray5);
+    --c-mix-3: var(--c-gray3);
+    --c-mix-4: var(--c-overlay-dark);
+    --c-mix-5: var(--c-nav-light);
+    --c-mix-6: var(--c-glass-dark);
+    --c-mix-7: var(--c-pulse-light);
+    --c-mix-8: var(--c-shadow-dark);
+    --c-mix-9: var(--c-gray3);
+    --c-mix-10: var(--c-gray5);
+    --c-mix-11: var(--c-shadow-dark-subtle);
+    --c-mix-12: var(--c-glass-dark-subtle);
+    --c-mix-13: rgba(255, 255, 255, 0.3);
+    --c-mix-14: rgba(33, 33, 33, 0.3);
+    --c-glass-bg: var(--c-glass-dark-2);
+    --c-shine: var(--shine-effect);
+}
+:root {
+    --background: var(--c-light);
+    --foreground: var(--c-dark);
+    --c-mix-1: var(--c-gray1);
+    --c-mix-2: var(--c-gray3);
+    --c-mix-3: var(--c-gray4);
+    --c-mix-4: var(--c-overlay-light);
+    --c-mix-5: var(--c-nav-dark);
+    --c-mix-6: var(--c-glass-light);
+    --c-mix-7: var(--c-pulse-dark);
+    --c-mix-8: var(--c-shadow-light);
+    --c-mix-9: var(--c-gray5);
+    --c-mix-10: var(--c-gray2);
+    --c-mix-11: var(--c-shadow-light-subtle);
+    --c-mix-12: var(--c-glass-light-subtle);
+    --c-mix-13: rgba(255, 255, 255, 1);
+    --c-mix-14: rgba(237, 237, 237, 1);
+    --c-glass-bg: var(--c-glass-light-2);
+    --c-shine: var(--shine-effect-2);
+}
+:root {
+    --unit: 0.625rem;
+    --vh: 1vh;
+    --a-speed: 300ms;
+    --c-light: #FFF;
+    --c-gray1: #EEE;
+    --c-gray2: #CCC;
+    --c-gray3: #999;
+    --c-gray4: #666;
+    --c-gray5: #555;
+    --c-gray6: #222;
+    --c-dark: #111;
+    --c-overlay-light: rgb(0 0 0 / 0.5);
+    --c-overlay-dark: rgb(0 0 0 / 0.8);
+    --c-glass-light: rgba(255, 255, 255, 0.7);
+    --c-glass-dark: rgba(17, 17, 17, 0.7);
+    --c-glass-light-subtle: rgba(255, 255, 255, 0.9);
+    --c-glass-dark-subtle: rgba(17, 17, 17, 0.9);
+    --c-nav-light: rgb(255 255 255 / 0.5);
+    --c-nav-dark: rgb(0 0 0 / 0.5);
+    --c-success: #1b0;
+    --c-error: #f20;
+    --c-pulse-light: 255, 255, 255;
+    --c-pulse-dark: 0, 0, 0;
+    --c-shadow-dark: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+    --c-shadow-dark-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+    --c-glass-dark-2: rgba(0, 0, 0, 0.3);
+    --c-glass-light-2: rgba(0, 0, 0, 0.05);
+    --c-yellow: #FC0;
+    --c-orange: #F80;
+    --c-brown: #A63;
+    --c-red: #F20;
+    --c-pink: #F58;
+    --c-magenta: #B1C;
+    --c-violet: #80F;
+    --c-blue: #08F;
+    --c-cyan: #0BA;
+    --c-green: #0A0;
+    --c-lemon: #AC4;
+    --c-mono: var(--foreground);
+    --f-base: Inter, var(--f-sans);
+    --f-headings: Cormorant, var(--f-serif);
+    --f-body: Inter, var(--f-sans);
+    --f-sans: -apple-system, system-ui, BlinkMacSystemFont, "Helvetica", "Arial", sans-serif;
+    --f-serif: Georgia, "Times New Roman", Times, serif;
+    --f-mono: "Lucida Console", Monaco, monospace;
+    --l-title: 1.2;
+    --l-body: 1.6;
+    --t-xs: 10px;
+Show all properties (38 more)
+}
+[data-theme=dark] {
+    --background: var(--c-dark);
+    --foreground: var(--c-light);
+    --c-mix-1: var(--c-gray6);
+    --c-mix-2: var(--c-gray5);
+    --c-mix-3: var(--c-gray3);
+    --c-mix-4: var(--c-overlay-dark);
+    --c-mix-5: var(--c-nav-light);
+    --c-mix-6: var(--c-glass-dark);
+    --c-mix-7: var(--c-pulse-light);
+    --c-mix-8: var(--c-shadow-dark);
+    --c-mix-9: var(--c-gray3);
+    --c-mix-10: var(--c-gray5);
+    --c-mix-11: var(--c-shadow-dark-subtle);
+    --c-mix-12: var(--c-glass-dark-subtle);
+    --c-mix-13: rgba(255, 255, 255, 0.3);
+    --c-mix-14: rgba(33, 33, 33, 0.3);
+    --c-glass-bg: var(--c-glass-dark-2);
+    --c-shine: var(--shine-effect);
+}
+:root {
+    --background: var(--c-light);
+    --foreground: var(--c-dark);
+    --c-mix-1: var(--c-gray1);
+    --c-mix-2: var(--c-gray3);
+    --c-mix-3: var(--c-gray4);
+    --c-mix-4: var(--c-overlay-light);
+    --c-mix-5: var(--c-nav-dark);
+    --c-mix-6: var(--c-glass-light);
+    --c-mix-7: var(--c-pulse-dark);
+    --c-mix-8: var(--c-shadow-light);
+    --c-mix-9: var(--c-gray5);
+    --c-mix-10: var(--c-gray2);
+    --c-mix-11: var(--c-shadow-light-subtle);
+    --c-mix-12: var(--c-glass-light-subtle);
+    --c-mix-13: rgba(255, 255, 255, 1);
+    --c-mix-14: rgba(237, 237, 237, 1);
+    --c-glass-bg: var(--c-glass-light-2);
+    --c-shine: var(--shine-effect-2);
+}
+:root {
+    --unit: 0.625rem;
+    --vh: 1vh;
+    --a-speed: 300ms;
+    --c-light: #FFF;
+    --c-gray1: #EEE;
+    --c-gray2: #CCC;
+    --c-gray3: #999;
+    --c-gray4: #666;
+    --c-gray5: #555;
+    --c-gray6: #222;
+    --c-dark: #111;
+    --c-overlay-light: rgb(0 0 0 / 0.5);
+    --c-overlay-dark: rgb(0 0 0 / 0.8);
+    --c-glass-light: rgba(255, 255, 255, 0.7);
+    --c-glass-dark: rgba(17, 17, 17, 0.7);
+    --c-glass-light-subtle: rgba(255, 255, 255, 0.9);
+    --c-glass-dark-subtle: rgba(17, 17, 17, 0.9);
+    --c-nav-light: rgb(255 255 255 / 0.5);
+    --c-nav-dark: rgb(0 0 0 / 0.5);
+    --c-success: #1b0;
+    --c-error: #f20;
+    --c-pulse-light: 255, 255, 255;
+    --c-pulse-dark: 0, 0, 0;
+    --c-shadow-dark: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+    --c-shadow-dark-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+    --c-glass-dark-2: rgba(0, 0, 0, 0.3);
+    --c-glass-light-2: rgba(0, 0, 0, 0.05);
+    --c-yellow: #FC0;
+    --c-orange: #F80;
+    --c-brown: #A63;
+    --c-red: #F20;
+    --c-pink: #F58;
+    --c-magenta: #B1C;
+    --c-violet: #80F;
+    --c-blue: #08F;
+    --c-cyan: #0BA;
+    --c-green: #0A0;
+    --c-lemon: #AC4;
+    --c-mono: var(--foreground);
+    --f-base: Inter, var(--f-sans);
+    --f-headings: Cormorant, var(--f-serif);
+    --f-body: Inter, var(--f-sans);
+    --f-sans: -apple-system, system-ui, BlinkMacSystemFont, "Helvetica", "Arial", sans-serif;
+    --f-serif: Georgia, "Times New Roman", Times, serif;
+    --f-mono: "Lucida Console", Monaco, monospace;
+    --l-title: 1.2;
+    --l-body: 1.6;
+    --t-xs: 10px;
+Show all properties (38 more)
+}
+[data-theme=dark] {
+    --background: var(--c-dark);
+    --foreground: var(--c-light);
+    --c-mix-1: var(--c-gray6);
+    --c-mix-2: var(--c-gray5);
+    --c-mix-3: var(--c-gray3);
+    --c-mix-4: var(--c-overlay-dark);
+    --c-mix-5: var(--c-nav-light);
+    --c-mix-6: var(--c-glass-dark);
+    --c-mix-7: var(--c-pulse-light);
+    --c-mix-8: var(--c-shadow-dark);
+    --c-mix-9: var(--c-gray3);
+    --c-mix-10: var(--c-gray5);
+    --c-mix-11: var(--c-shadow-dark-subtle);
+    --c-mix-12: var(--c-glass-dark-subtle);
+    --c-mix-13: rgba(255, 255, 255, 0.3);
+    --c-mix-14: rgba(33, 33, 33, 0.3);
+    --c-glass-bg: var(--c-glass-dark-2);
+    --c-shine: var(--shine-effect);
+}
+:root {
+    --background: var(--c-light);
+    --foreground: var(--c-dark);
+    --c-mix-1: var(--c-gray1);
+    --c-mix-2: var(--c-gray3);
+    --c-mix-3: var(--c-gray4);
+    --c-mix-4: var(--c-overlay-light);
+    --c-mix-5: var(--c-nav-dark);
+    --c-mix-6: var(--c-glass-light);
+    --c-mix-7: var(--c-pulse-dark);
+    --c-mix-8: var(--c-shadow-light);
+    --c-mix-9: var(--c-gray5);
+    --c-mix-10: var(--c-gray2);
+    --c-mix-11: var(--c-shadow-light-subtle);
+    --c-mix-12: var(--c-glass-light-subtle);
+    --c-mix-13: rgba(255, 255, 255, 1);
+    --c-mix-14: rgba(237, 237, 237, 1);
+    --c-glass-bg: var(--c-glass-light-2);
+    --c-shine: var(--shine-effect-2);
+}
+:root {
+    --unit: 0.625rem;
+    --vh: 1vh;
+    --a-speed: 300ms;
+    --c-light: #FFF;
+    --c-gray1: #EEE;
+    --c-gray2: #CCC;
+    --c-gray3: #999;
+    --c-gray4: #666;
+    --c-gray5: #555;
+    --c-gray6: #222;
+    --c-dark: #111;
+    --c-overlay-light: rgb(0 0 0 / 0.5);
+    --c-overlay-dark: rgb(0 0 0 / 0.8);
+    --c-glass-light: rgba(255, 255, 255, 0.7);
+    --c-glass-dark: rgba(17, 17, 17, 0.7);
+    --c-glass-light-subtle: rgba(255, 255, 255, 0.9);
+    --c-glass-dark-subtle: rgba(17, 17, 17, 0.9);
+    --c-nav-light: rgb(255 255 255 / 0.5);
+    --c-nav-dark: rgb(0 0 0 / 0.5);
+    --c-success: #1b0;
+    --c-error: #f20;
+    --c-pulse-light: 255, 255, 255;
+    --c-pulse-dark: 0, 0, 0;
+    --c-shadow-dark: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+    --c-shadow-dark-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+    --c-glass-dark-2: rgba(0, 0, 0, 0.3);
+    --c-glass-light-2: rgba(0, 0, 0, 0.05);
+    --c-yellow: #FC0;
+    --c-orange: #F80;
+    --c-brown: #A63;
+    --c-red: #F20;
+    --c-pink: #F58;
+    --c-magenta: #B1C;
+    --c-violet: #80F;
+    --c-blue: #08F;
+    --c-cyan: #0BA;
+    --c-green: #0A0;
+    --c-lemon: #AC4;
+    --c-mono: var(--foreground);
+    --f-base: Inter, var(--f-sans);
+    --f-headings: Cormorant, var(--f-serif);
+    --f-body: Inter, var(--f-sans);
+    --f-sans: -apple-system, system-ui, BlinkMacSystemFont, "Helvetica", "Arial", sans-serif;
+    --f-serif: Georgia, "Times New Roman", Times, serif;
+    --f-mono: "Lucida Console", Monaco, monospace;
+    --l-title: 1.2;
+    --l-body: 1.6;
+    --t-xs: 10px;
+Show all properties (38 more)
+}
+[data-theme=dark] {
+    --background: var(--c-dark);
+    --foreground: var(--c-light);
+    --c-mix-1: var(--c-gray6);
+    --c-mix-2: var(--c-gray5);
+    --c-mix-3: var(--c-gray3);
+    --c-mix-4: var(--c-overlay-dark);
+    --c-mix-5: var(--c-nav-light);
+    --c-mix-6: var(--c-glass-dark);
+    --c-mix-7: var(--c-pulse-light);
+    --c-mix-8: var(--c-shadow-dark);
+    --c-mix-9: var(--c-gray3);
+    --c-mix-10: var(--c-gray5);
+    --c-mix-11: var(--c-shadow-dark-subtle);
+    --c-mix-12: var(--c-glass-dark-subtle);
+    --c-mix-13: rgba(255, 255, 255, 0.3);
+    --c-mix-14: rgba(33, 33, 33, 0.3);
+    --c-glass-bg: var(--c-glass-dark-2);
+    --c-shine: var(--shine-effect);
+}
+:root {
+    --background: var(--c-light);
+    --foreground: var(--c-dark);
+    --c-mix-1: var(--c-gray1);
+    --c-mix-2: var(--c-gray3);
+    --c-mix-3: var(--c-gray4);
+    --c-mix-4: var(--c-overlay-light);
+    --c-mix-5: var(--c-nav-dark);
+    --c-mix-6: var(--c-glass-light);
+    --c-mix-7: var(--c-pulse-dark);
+    --c-mix-8: var(--c-shadow-light);
+    --c-mix-9: var(--c-gray5);
+    --c-mix-10: var(--c-gray2);
+    --c-mix-11: var(--c-shadow-light-subtle);
+    --c-mix-12: var(--c-glass-light-subtle);
+    --c-mix-13: rgba(255, 255, 255, 1);
+    --c-mix-14: rgba(237, 237, 237, 1);
+    --c-glass-bg: var(--c-glass-light-2);
+    --c-shine: var(--shine-effect-2);
+}
+:root {
+    --unit: 0.625rem;
+    --vh: 1vh;
+    --a-speed: 300ms;
+    --c-light: #FFF;
+    --c-gray1: #EEE;
+    --c-gray2: #CCC;
+    --c-gray3: #999;
+    --c-gray4: #666;
+    --c-gray5: #555;
+    --c-gray6: #222;
+    --c-dark: #111;
+    --c-overlay-light: rgb(0 0 0 / 0.5);
+    --c-overlay-dark: rgb(0 0 0 / 0.8);
+    --c-glass-light: rgba(255, 255, 255, 0.7);
+    --c-glass-dark: rgba(17, 17, 17, 0.7);
+    --c-glass-light-subtle: rgba(255, 255, 255, 0.9);
+    --c-glass-dark-subtle: rgba(17, 17, 17, 0.9);
+    --c-nav-light: rgb(255 255 255 / 0.5);
+    --c-nav-dark: rgb(0 0 0 / 0.5);
+    --c-success: #1b0;
+    --c-error: #f20;
+    --c-pulse-light: 255, 255, 255;
+    --c-pulse-dark: 0, 0, 0;
+    --c-shadow-dark: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+    --c-shadow-dark-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+    --c-glass-dark-2: rgba(0, 0, 0, 0.3);
+    --c-glass-light-2: rgba(0, 0, 0, 0.05);
+    --c-yellow: #FC0;
+    --c-orange: #F80;
+    --c-brown: #A63;
+    --c-red: #F20;
+    --c-pink: #F58;
+    --c-magenta: #B1C;
+    --c-violet: #80F;
+    --c-blue: #08F;
+    --c-cyan: #0BA;
+    --c-green: #0A0;
+    --c-lemon: #AC4;
+    --c-mono: var(--foreground);
+    --f-base: Inter, var(--f-sans);
+    --f-headings: Cormorant, var(--f-serif);
+    --f-body: Inter, var(--f-sans);
+    --f-sans: -apple-system, system-ui, BlinkMacSystemFont, "Helvetica", "Arial", sans-serif;
+    --f-serif: Georgia, "Times New Roman", Times, serif;
+    --f-mono: "Lucida Console", Monaco, monospace;
+    --l-title: 1.2;
+    --l-body: 1.6;
+    --t-xs: 10px;
+Show all properties (38 more)
+}
+[data-theme=dark] {
+    --background: var(--c-dark);
+    --foreground: var(--c-light);
+    --c-mix-1: var(--c-gray6);
+    --c-mix-2: var(--c-gray5);
+    --c-mix-3: var(--c-gray3);
+    --c-mix-4: var(--c-overlay-dark);
+    --c-mix-5: var(--c-nav-light);
+    --c-mix-6: var(--c-glass-dark);
+    --c-mix-7: var(--c-pulse-light);
+    --c-mix-8: var(--c-shadow-dark);
+    --c-mix-9: var(--c-gray3);
+    --c-mix-10: var(--c-gray5);
+    --c-mix-11: var(--c-shadow-dark-subtle);
+    --c-mix-12: var(--c-glass-dark-subtle);
+    --c-mix-13: rgba(255, 255, 255, 0.3);
+    --c-mix-14: rgba(33, 33, 33, 0.3);
+    --c-glass-bg: var(--c-glass-dark-2);
+    --c-shine: var(--shine-effect);
+}
+:root {
+    --background: var(--c-light);
+    --foreground: var(--c-dark);
+    --c-mix-1: var(--c-gray1);
+    --c-mix-2: var(--c-gray3);
+    --c-mix-3: var(--c-gray4);
+    --c-mix-4: var(--c-overlay-light);
+    --c-mix-5: var(--c-nav-dark);
+    --c-mix-6: var(--c-glass-light);
+    --c-mix-7: var(--c-pulse-dark);
+    --c-mix-8: var(--c-shadow-light);
+    --c-mix-9: var(--c-gray5);
+    --c-mix-10: var(--c-gray2);
+    --c-mix-11: var(--c-shadow-light-subtle);
+    --c-mix-12: var(--c-glass-light-subtle);
+    --c-mix-13: rgba(255, 255, 255, 1);
+    --c-mix-14: rgba(237, 237, 237, 1);
+    --c-glass-bg: var(--c-glass-light-2);
+    --c-shine: var(--shine-effect-2);
+}
+:root {
+    --unit: 0.625rem;
+    --vh: 1vh;
+    --a-speed: 300ms;
+    --c-light: #FFF;
+    --c-gray1: #EEE;
+    --c-gray2: #CCC;
+    --c-gray3: #999;
+    --c-gray4: #666;
+    --c-gray5: #555;
+    --c-gray6: #222;
+    --c-dark: #111;
+    --c-overlay-light: rgb(0 0 0 / 0.5);
+    --c-overlay-dark: rgb(0 0 0 / 0.8);
+    --c-glass-light: rgba(255, 255, 255, 0.7);
+    --c-glass-dark: rgba(17, 17, 17, 0.7);
+    --c-glass-light-subtle: rgba(255, 255, 255, 0.9);
+    --c-glass-dark-subtle: rgba(17, 17, 17, 0.9);
+    --c-nav-light: rgb(255 255 255 / 0.5);
+    --c-nav-dark: rgb(0 0 0 / 0.5);
+    --c-success: #1b0;
+    --c-error: #f20;
+    --c-pulse-light: 255, 255, 255;
+    --c-pulse-dark: 0, 0, 0;
+    --c-shadow-dark: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+    --c-shadow-dark-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+    --c-glass-dark-2: rgba(0, 0, 0, 0.3);
+    --c-glass-light-2: rgba(0, 0, 0, 0.05);
+    --c-yellow: #FC0;
+    --c-orange: #F80;
+    --c-brown: #A63;
+    --c-red: #F20;
+    --c-pink: #F58;
+    --c-magenta: #B1C;
+    --c-violet: #80F;
+    --c-blue: #08F;
+    --c-cyan: #0BA;
+    --c-green: #0A0;
+    --c-lemon: #AC4;
+    --c-mono: var(--foreground);
+    --f-base: Inter, var(--f-sans);
+    --f-headings: Cormorant, var(--f-serif);
+    --f-body: Inter, var(--f-sans);
+    --f-sans: -apple-system, system-ui, BlinkMacSystemFont, "Helvetica", "Arial", sans-serif;
+    --f-serif: Georgia, "Times New Roman", Times, serif;
+    --f-mono: "Lucida Console", Monaco, monospace;
+    --l-title: 1.2;
+    --l-body: 1.6;
+    --t-xs: 10px;
+Show all properties (38 more)
+}
+[data-theme=dark] {
+    --background: var(--c-dark);
+    --foreground: var(--c-light);
+    --c-mix-1: var(--c-gray6);
+    --c-mix-2: var(--c-gray5);
+    --c-mix-3: var(--c-gray3);
+    --c-mix-4: var(--c-overlay-dark);
+    --c-mix-5: var(--c-nav-light);
+    --c-mix-6: var(--c-glass-dark);
+    --c-mix-7: var(--c-pulse-light);
+    --c-mix-8: var(--c-shadow-dark);
+    --c-mix-9: var(--c-gray3);
+    --c-mix-10: var(--c-gray5);
+    --c-mix-11: var(--c-shadow-dark-subtle);
+    --c-mix-12: var(--c-glass-dark-subtle);
+    --c-mix-13: rgba(255, 255, 255, 0.3);
+    --c-mix-14: rgba(33, 33, 33, 0.3);
+    --c-glass-bg: var(--c-glass-dark-2);
+    --c-shine: var(--shine-effect);
+}
+:root {
+    --background: var(--c-light);
+    --foreground: var(--c-dark);
+    --c-mix-1: var(--c-gray1);
+    --c-mix-2: var(--c-gray3);
+    --c-mix-3: var(--c-gray4);
+    --c-mix-4: var(--c-overlay-light);
+    --c-mix-5: var(--c-nav-dark);
+    --c-mix-6: var(--c-glass-light);
+    --c-mix-7: var(--c-pulse-dark);
+    --c-mix-8: var(--c-shadow-light);
+    --c-mix-9: var(--c-gray5);
+    --c-mix-10: var(--c-gray2);
+    --c-mix-11: var(--c-shadow-light-subtle);
+    --c-mix-12: var(--c-glass-light-subtle);
+    --c-mix-13: rgba(255, 255, 255, 1);
+    --c-mix-14: rgba(237, 237, 237, 1);
+    --c-glass-bg: var(--c-glass-light-2);
+    --c-shine: var(--shine-effect-2);
+}
+:root {
+    --unit: 0.625rem;
+    --vh: 1vh;
+    --a-speed: 300ms;
+    --c-light: #FFF;
+    --c-gray1: #EEE;
+    --c-gray2: #CCC;
+    --c-gray3: #999;
+    --c-gray4: #666;
+    --c-gray5: #555;
+    --c-gray6: #222;
+    --c-dark: #111;
+    --c-overlay-light: rgb(0 0 0 / 0.5);
+    --c-overlay-dark: rgb(0 0 0 / 0.8);
+    --c-glass-light: rgba(255, 255, 255, 0.7);
+    --c-glass-dark: rgba(17, 17, 17, 0.7);
+    --c-glass-light-subtle: rgba(255, 255, 255, 0.9);
+    --c-glass-dark-subtle: rgba(17, 17, 17, 0.9);
+    --c-nav-light: rgb(255 255 255 / 0.5);
+    --c-nav-dark: rgb(0 0 0 / 0.5);
+    --c-success: #1b0;
+    --c-error: #f20;
+    --c-pulse-light: 255, 255, 255;
+    --c-pulse-dark: 0, 0, 0;
+    --c-shadow-dark: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+    --c-shadow-dark-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+    --c-glass-dark-2: rgba(0, 0, 0, 0.3);
+    --c-glass-light-2: rgba(0, 0, 0, 0.05);
+    --c-yellow: #FC0;
+    --c-orange: #F80;
+    --c-brown: #A63;
+    --c-red: #F20;
+    --c-pink: #F58;
+    --c-magenta: #B1C;
+    --c-violet: #80F;
+    --c-blue: #08F;
+    --c-cyan: #0BA;
+    --c-green: #0A0;
+    --c-lemon: #AC4;
+    --c-mono: var(--foreground);
+    --f-base: Inter, var(--f-sans);
+    --f-headings: Cormorant, var(--f-serif);
+    --f-body: Inter, var(--f-sans);
+    --f-sans: -apple-system, system-ui, BlinkMacSystemFont, "Helvetica", "Arial", sans-serif;
+    --f-serif: Georgia, "Times New Roman", Times, serif;
+    --f-mono: "Lucida Console", Monaco, monospace;
+    --l-title: 1.2;
+    --l-body: 1.6;
+    --t-xs: 10px;
+Show all properties (38 more)
+}
+[data-theme=dark] {
+    --background: var(--c-dark);
+    --foreground: var(--c-light);
+    --c-mix-1: var(--c-gray6);
+    --c-mix-2: var(--c-gray5);
+    --c-mix-3: var(--c-gray3);
+    --c-mix-4: var(--c-overlay-dark);
+    --c-mix-5: var(--c-nav-light);
+    --c-mix-6: var(--c-glass-dark);
+    --c-mix-7: var(--c-pulse-light);
+    --c-mix-8: var(--c-shadow-dark);
+    --c-mix-9: var(--c-gray3);
+    --c-mix-10: var(--c-gray5);
+    --c-mix-11: var(--c-shadow-dark-subtle);
+    --c-mix-12: var(--c-glass-dark-subtle);
+    --c-mix-13: rgba(255, 255, 255, 0.3);
+    --c-mix-14: rgba(33, 33, 33, 0.3);
+    --c-glass-bg: var(--c-glass-dark-2);
+    --c-shine: var(--shine-effect);
+}
+:root {
+    --background: var(--c-light);
+    --foreground: var(--c-dark);
+    --c-mix-1: var(--c-gray1);
+    --c-mix-2: var(--c-gray3);
+    --c-mix-3: var(--c-gray4);
+    --c-mix-4: var(--c-overlay-light);
+    --c-mix-5: var(--c-nav-dark);
+    --c-mix-6: var(--c-glass-light);
+    --c-mix-7: var(--c-pulse-dark);
+    --c-mix-8: var(--c-shadow-light);
+    --c-mix-9: var(--c-gray5);
+    --c-mix-10: var(--c-gray2);
+    --c-mix-11: var(--c-shadow-light-subtle);
+    --c-mix-12: var(--c-glass-light-subtle);
+    --c-mix-13: rgba(255, 255, 255, 1);
+    --c-mix-14: rgba(237, 237, 237, 1);
+    --c-glass-bg: var(--c-glass-light-2);
+    --c-shine: var(--shine-effect-2);
+}
+:root {
+    --unit: 0.625rem;
+    --vh: 1vh;
+    --a-speed: 300ms;
+    --c-light: #FFF;
+    --c-gray1: #EEE;
+    --c-gray2: #CCC;
+    --c-gray3: #999;
+    --c-gray4: #666;
+    --c-gray5: #555;
+    --c-gray6: #222;
+    --c-dark: #111;
+    --c-overlay-light: rgb(0 0 0 / 0.5);
+    --c-overlay-dark: rgb(0 0 0 / 0.8);
+    --c-glass-light: rgba(255, 255, 255, 0.7);
+    --c-glass-dark: rgba(17, 17, 17, 0.7);
+    --c-glass-light-subtle: rgba(255, 255, 255, 0.9);
+    --c-glass-dark-subtle: rgba(17, 17, 17, 0.9);
+    --c-nav-light: rgb(255 255 255 / 0.5);
+    --c-nav-dark: rgb(0 0 0 / 0.5);
+    --c-success: #1b0;
+    --c-error: #f20;
+    --c-pulse-light: 255, 255, 255;
+    --c-pulse-dark: 0, 0, 0;
+    --c-shadow-dark: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+    --c-shadow-dark-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+    --c-glass-dark-2: rgba(0, 0, 0, 0.3);
+    --c-glass-light-2: rgba(0, 0, 0, 0.05);
+    --c-yellow: #FC0;
+    --c-orange: #F80;
+    --c-brown: #A63;
+    --c-red: #F20;
+    --c-pink: #F58;
+    --c-magenta: #B1C;
+    --c-violet: #80F;
+    --c-blue: #08F;
+    --c-cyan: #0BA;
+    --c-green: #0A0;
+    --c-lemon: #AC4;
+    --c-mono: var(--foreground);
+    --f-base: Inter, var(--f-sans);
+    --f-headings: Cormorant, var(--f-serif);
+    --f-body: Inter, var(--f-sans);
+    --f-sans: -apple-system, system-ui, BlinkMacSystemFont, "Helvetica", "Arial", sans-serif;
+    --f-serif: Georgia, "Times New Roman", Times, serif;
+    --f-mono: "Lucida Console", Monaco, monospace;
+    --l-title: 1.2;
+    --l-body: 1.6;
+    --t-xs: 10px;
+Show all properties (38 more)
+}
+[data-theme=dark] {
+    --background: var(--c-dark);
+    --foreground: var(--c-light);
+    --c-mix-1: var(--c-gray6);
+    --c-mix-2: var(--c-gray5);
+    --c-mix-3: var(--c-gray3);
+    --c-mix-4: var(--c-overlay-dark);
+    --c-mix-5: var(--c-nav-light);
+    --c-mix-6: var(--c-glass-dark);
+    --c-mix-7: var(--c-pulse-light);
+    --c-mix-8: var(--c-shadow-dark);
+    --c-mix-9: var(--c-gray3);
+    --c-mix-10: var(--c-gray5);
+    --c-mix-11: var(--c-shadow-dark-subtle);
+    --c-mix-12: var(--c-glass-dark-subtle);
+    --c-mix-13: rgba(255, 255, 255, 0.3);
+    --c-mix-14: rgba(33, 33, 33, 0.3);
+    --c-glass-bg: var(--c-glass-dark-2);
+    --c-shine: var(--shine-effect);
+}
+:root {
+    --background: var(--c-light);
+    --foreground: var(--c-dark);
+    --c-mix-1: var(--c-gray1);
+    --c-mix-2: var(--c-gray3);
+    --c-mix-3: var(--c-gray4);
+    --c-mix-4: var(--c-overlay-light);
+    --c-mix-5: var(--c-nav-dark);
+    --c-mix-6: var(--c-glass-light);
+    --c-mix-7: var(--c-pulse-dark);
+    --c-mix-8: var(--c-shadow-light);
+    --c-mix-9: var(--c-gray5);
+    --c-mix-10: var(--c-gray2);
+    --c-mix-11: var(--c-shadow-light-subtle);
+    --c-mix-12: var(--c-glass-light-subtle);
+    --c-mix-13: rgba(255, 255, 255, 1);
+    --c-mix-14: rgba(237, 237, 237, 1);
+    --c-glass-bg: var(--c-glass-light-2);
+    --c-shine: var(--shine-effect-2);
+}
+:root {
+    --unit: 0.625rem;
+    --vh: 1vh;
+    --a-speed: 300ms;
+    --c-light: #FFF;
+    --c-gray1: #EEE;
+    --c-gray2: #CCC;
+    --c-gray3: #999;
+    --c-gray4: #666;
+    --c-gray5: #555;
+    --c-gray6: #222;
+    --c-dark: #111;
+    --c-overlay-light: rgb(0 0 0 / 0.5);
+    --c-overlay-dark: rgb(0 0 0 / 0.8);
+    --c-glass-light: rgba(255, 255, 255, 0.7);
+    --c-glass-dark: rgba(17, 17, 17, 0.7);
+    --c-glass-light-subtle: rgba(255, 255, 255, 0.9);
+    --c-glass-dark-subtle: rgba(17, 17, 17, 0.9);
+    --c-nav-light: rgb(255 255 255 / 0.5);
+    --c-nav-dark: rgb(0 0 0 / 0.5);
+    --c-success: #1b0;
+    --c-error: #f20;
+    --c-pulse-light: 255, 255, 255;
+    --c-pulse-dark: 0, 0, 0;
+    --c-shadow-dark: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+    --c-shadow-dark-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+    --c-glass-dark-2: rgba(0, 0, 0, 0.3);
+    --c-glass-light-2: rgba(0, 0, 0, 0.05);
+    --c-yellow: #FC0;
+    --c-orange: #F80;
+    --c-brown: #A63;
+    --c-red: #F20;
+    --c-pink: #F58;
+    --c-magenta: #B1C;
+    --c-violet: #80F;
+    --c-blue: #08F;
+    --c-cyan: #0BA;
+    --c-green: #0A0;
+    --c-lemon: #AC4;
+    --c-mono: var(--foreground);
+    --f-base: Inter, var(--f-sans);
+    --f-headings: Cormorant, var(--f-serif);
+    --f-body: Inter, var(--f-sans);
+    --f-sans: -apple-system, system-ui, BlinkMacSystemFont, "Helvetica", "Arial", sans-serif;
+    --f-serif: Georgia, "Times New Roman", Times, serif;
+    --f-mono: "Lucida Console", Monaco, monospace;
+    --l-title: 1.2;
+    --l-body: 1.6;
+    --t-xs: 10px;
+Show all properties (38 more)
+}
+[data-theme=dark] {
+    --background: var(--c-dark);
+    --foreground: var(--c-light);
+    --c-mix-1: var(--c-gray6);
+    --c-mix-2: var(--c-gray5);
+    --c-mix-3: var(--c-gray3);
+    --c-mix-4: var(--c-overlay-dark);
+    --c-mix-5: var(--c-nav-light);
+    --c-mix-6: var(--c-glass-dark);
+    --c-mix-7: var(--c-pulse-light);
+    --c-mix-8: var(--c-shadow-dark);
+    --c-mix-9: var(--c-gray3);
+    --c-mix-10: var(--c-gray5);
+    --c-mix-11: var(--c-shadow-dark-subtle);
+    --c-mix-12: var(--c-glass-dark-subtle);
+    --c-mix-13: rgba(255, 255, 255, 0.3);
+    --c-mix-14: rgba(33, 33, 33, 0.3);
+    --c-glass-bg: var(--c-glass-dark-2);
+    --c-shine: var(--shine-effect);
+}
+:root {
+    --background: var(--c-light);
+    --foreground: var(--c-dark);
+    --c-mix-1: var(--c-gray1);
+    --c-mix-2: var(--c-gray3);
+    --c-mix-3: var(--c-gray4);
+    --c-mix-4: var(--c-overlay-light);
+    --c-mix-5: var(--c-nav-dark);
+    --c-mix-6: var(--c-glass-light);
+    --c-mix-7: var(--c-pulse-dark);
+    --c-mix-8: var(--c-shadow-light);
+    --c-mix-9: var(--c-gray5);
+    --c-mix-10: var(--c-gray2);
+    --c-mix-11: var(--c-shadow-light-subtle);
+    --c-mix-12: var(--c-glass-light-subtle);
+    --c-mix-13: rgba(255, 255, 255, 1);
+    --c-mix-14: rgba(237, 237, 237, 1);
+    --c-glass-bg: var(--c-glass-light-2);
+    --c-shine: var(--shine-effect-2);
+}
+:root {
+    --unit: 0.625rem;
+    --vh: 1vh;
+    --a-speed: 300ms;
+    --c-light: #FFF;
+    --c-gray1: #EEE;
+    --c-gray2: #CCC;
+    --c-gray3: #999;
+    --c-gray4: #666;
+    --c-gray5: #555;
+    --c-gray6: #222;
+    --c-dark: #111;
+    --c-overlay-light: rgb(0 0 0 / 0.5);
+    --c-overlay-dark: rgb(0 0 0 / 0.8);
+    --c-glass-light: rgba(255, 255, 255, 0.7);
+    --c-glass-dark: rgba(17, 17, 17, 0.7);
+    --c-glass-light-subtle: rgba(255, 255, 255, 0.9);
+    --c-glass-dark-subtle: rgba(17, 17, 17, 0.9);
+    --c-nav-light: rgb(255 255 255 / 0.5);
+    --c-nav-dark: rgb(0 0 0 / 0.5);
+    --c-success: #1b0;
+    --c-error: #f20;
+    --c-pulse-light: 255, 255, 255;
+    --c-pulse-dark: 0, 0, 0;
+    --c-shadow-dark: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+    --c-shadow-dark-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+    --c-glass-dark-2: rgba(0, 0, 0, 0.3);
+    --c-glass-light-2: rgba(0, 0, 0, 0.05);
+    --c-yellow: #FC0;
+    --c-orange: #F80;
+    --c-brown: #A63;
+    --c-red: #F20;
+    --c-pink: #F58;
+    --c-magenta: #B1C;
+    --c-violet: #80F;
+    --c-blue: #08F;
+    --c-cyan: #0BA;
+    --c-green: #0A0;
+    --c-lemon: #AC4;
+    --c-mono: var(--foreground);
+    --f-base: Inter, var(--f-sans);
+    --f-headings: Cormorant, var(--f-serif);
+    --f-body: Inter, var(--f-sans);
+    --f-sans: -apple-system, system-ui, BlinkMacSystemFont, "Helvetica", "Arial", sans-serif;
+    --f-serif: Georgia, "Times New Roman", Times, serif;
+    --f-mono: "Lucida Console", Monaco, monospace;
+    --l-title: 1.2;
+    --l-body: 1.6;
+    --t-xs: 10px;
+Show all properties (38 more)
+}
+[data-theme=dark] {
+    --background: var(--c-dark);
+    --foreground: var(--c-light);
+    --c-mix-1: var(--c-gray6);
+    --c-mix-2: var(--c-gray5);
+    --c-mix-3: var(--c-gray3);
+    --c-mix-4: var(--c-overlay-dark);
+    --c-mix-5: var(--c-nav-light);
+    --c-mix-6: var(--c-glass-dark);
+    --c-mix-7: var(--c-pulse-light);
+    --c-mix-8: var(--c-shadow-dark);
+    --c-mix-9: var(--c-gray3);
+    --c-mix-10: var(--c-gray5);
+    --c-mix-11: var(--c-shadow-dark-subtle);
+    --c-mix-12: var(--c-glass-dark-subtle);
+    --c-mix-13: rgba(255, 255, 255, 0.3);
+    --c-mix-14: rgba(33, 33, 33, 0.3);
+    --c-glass-bg: var(--c-glass-dark-2);
+    --c-shine: var(--shine-effect);
+}
+:root {
+    --background: var(--c-light);
+    --foreground: var(--c-dark);
+    --c-mix-1: var(--c-gray1);
+    --c-mix-2: var(--c-gray3);
+    --c-mix-3: var(--c-gray4);
+    --c-mix-4: var(--c-overlay-light);
+    --c-mix-5: var(--c-nav-dark);
+    --c-mix-6: var(--c-glass-light);
+    --c-mix-7: var(--c-pulse-dark);
+    --c-mix-8: var(--c-shadow-light);
+    --c-mix-9: var(--c-gray5);
+    --c-mix-10: var(--c-gray2);
+    --c-mix-11: var(--c-shadow-light-subtle);
+    --c-mix-12: var(--c-glass-light-subtle);
+    --c-mix-13: rgba(255, 255, 255, 1);
+    --c-mix-14: rgba(237, 237, 237, 1);
+    --c-glass-bg: var(--c-glass-light-2);
+    --c-shine: var(--shine-effect-2);
+}
+:root {
+    --unit: 0.625rem;
+    --vh: 1vh;
+    --a-speed: 300ms;
+    --c-light: #FFF;
+    --c-gray1: #EEE;
+    --c-gray2: #CCC;
+    --c-gray3: #999;
+    --c-gray4: #666;
+    --c-gray5: #555;
+    --c-gray6: #222;
+    --c-dark: #111;
+    --c-overlay-light: rgb(0 0 0 / 0.5);
+    --c-overlay-dark: rgb(0 0 0 / 0.8);
+    --c-glass-light: rgba(255, 255, 255, 0.7);
+    --c-glass-dark: rgba(17, 17, 17, 0.7);
+    --c-glass-light-subtle: rgba(255, 255, 255, 0.9);
+    --c-glass-dark-subtle: rgba(17, 17, 17, 0.9);
+    --c-nav-light: rgb(255 255 255 / 0.5);
+    --c-nav-dark: rgb(0 0 0 / 0.5);
+    --c-success: #1b0;
+    --c-error: #f20;
+    --c-pulse-light: 255, 255, 255;
+    --c-pulse-dark: 0, 0, 0;
+    --c-shadow-dark: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+    --c-shadow-dark-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+    --c-glass-dark-2: rgba(0, 0, 0, 0.3);
+    --c-glass-light-2: rgba(0, 0, 0, 0.05);
+    --c-yellow: #FC0;
+    --c-orange: #F80;
+    --c-brown: #A63;
+    --c-red: #F20;
+    --c-pink: #F58;
+    --c-magenta: #B1C;
+    --c-violet: #80F;
+    --c-blue: #08F;
+    --c-cyan: #0BA;
+    --c-green: #0A0;
+    --c-lemon: #AC4;
+    --c-mono: var(--foreground);
+    --f-base: Inter, var(--f-sans);
+    --f-headings: Cormorant, var(--f-serif);
+    --f-body: Inter, var(--f-sans);
+    --f-sans: -apple-system, system-ui, BlinkMacSystemFont, "Helvetica", "Arial", sans-serif;
+    --f-serif: Georgia, "Times New Roman", Times, serif;
+    --f-mono: "Lucida Console", Monaco, monospace;
+    --l-title: 1.2;
+    --l-body: 1.6;
+    --t-xs: 10px;
+Show all properties (38 more)
+}
+[data-theme=dark] {
+    --background: var(--c-dark);
+    --foreground: var(--c-light);
+    --c-mix-1: var(--c-gray6);
+    --c-mix-2: var(--c-gray5);
+    --c-mix-3: var(--c-gray3);
+    --c-mix-4: var(--c-overlay-dark);
+    --c-mix-5: var(--c-nav-light);
+    --c-mix-6: var(--c-glass-dark);
+    --c-mix-7: var(--c-pulse-light);
+    --c-mix-8: var(--c-shadow-dark);
+    --c-mix-9: var(--c-gray3);
+    --c-mix-10: var(--c-gray5);
+    --c-mix-11: var(--c-shadow-dark-subtle);
+    --c-mix-12: var(--c-glass-dark-subtle);
+    --c-mix-13: rgba(255, 255, 255, 0.3);
+    --c-mix-14: rgba(33, 33, 33, 0.3);
+    --c-glass-bg: var(--c-glass-dark-2);
+    --c-shine: var(--shine-effect);
+}
+:root {
+    --background: var(--c-light);
+    --foreground: var(--c-dark);
+    --c-mix-1: var(--c-gray1);
+    --c-mix-2: var(--c-gray3);
+    --c-mix-3: var(--c-gray4);
+    --c-mix-4: var(--c-overlay-light);
+    --c-mix-5: var(--c-nav-dark);
+    --c-mix-6: var(--c-glass-light);
+    --c-mix-7: var(--c-pulse-dark);
+    --c-mix-8: var(--c-shadow-light);
+    --c-mix-9: var(--c-gray5);
+    --c-mix-10: var(--c-gray2);
+    --c-mix-11: var(--c-shadow-light-subtle);
+    --c-mix-12: var(--c-glass-light-subtle);
+    --c-mix-13: rgba(255, 255, 255, 1);
+    --c-mix-14: rgba(237, 237, 237, 1);
+    --c-glass-bg: var(--c-glass-light-2);
+    --c-shine: var(--shine-effect-2);
+}
+:root {
+    --unit: 0.625rem;
+    --vh: 1vh;
+    --a-speed: 300ms;
+    --c-light: #FFF;
+    --c-gray1: #EEE;
+    --c-gray2: #CCC;
+    --c-gray3: #999;
+    --c-gray4: #666;
+    --c-gray5: #555;
+    --c-gray6: #222;
+    --c-dark: #111;
+    --c-overlay-light: rgb(0 0 0 / 0.5);
+    --c-overlay-dark: rgb(0 0 0 / 0.8);
+    --c-glass-light: rgba(255, 255, 255, 0.7);
+    --c-glass-dark: rgba(17, 17, 17, 0.7);
+    --c-glass-light-subtle: rgba(255, 255, 255, 0.9);
+    --c-glass-dark-subtle: rgba(17, 17, 17, 0.9);
+    --c-nav-light: rgb(255 255 255 / 0.5);
+    --c-nav-dark: rgb(0 0 0 / 0.5);
+    --c-success: #1b0;
+    --c-error: #f20;
+    --c-pulse-light: 255, 255, 255;
+    --c-pulse-dark: 0, 0, 0;
+    --c-shadow-dark: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+    --c-shadow-dark-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+    --c-glass-dark-2: rgba(0, 0, 0, 0.3);
+    --c-glass-light-2: rgba(0, 0, 0, 0.05);
+    --c-yellow: #FC0;
+    --c-orange: #F80;
+    --c-brown: #A63;
+    --c-red: #F20;
+    --c-pink: #F58;
+    --c-magenta: #B1C;
+    --c-violet: #80F;
+    --c-blue: #08F;
+    --c-cyan: #0BA;
+    --c-green: #0A0;
+    --c-lemon: #AC4;
+    --c-mono: var(--foreground);
+    --f-base: Inter, var(--f-sans);
+    --f-headings: Cormorant, var(--f-serif);
+    --f-body: Inter, var(--f-sans);
+    --f-sans: -apple-system, system-ui, BlinkMacSystemFont, "Helvetica", "Arial", sans-serif;
+    --f-serif: Georgia, "Times New Roman", Times, serif;
+    --f-mono: "Lucida Console", Monaco, monospace;
+    --l-title: 1.2;
+    --l-body: 1.6;
+    --t-xs: 10px;
+Show all properties (38 more)
+}
+[data-theme=dark] {
+    --background: var(--c-dark);
+    --foreground: var(--c-light);
+    --c-mix-1: var(--c-gray6);
+    --c-mix-2: var(--c-gray5);
+    --c-mix-3: var(--c-gray3);
+    --c-mix-4: var(--c-overlay-dark);
+    --c-mix-5: var(--c-nav-light);
+    --c-mix-6: var(--c-glass-dark);
+    --c-mix-7: var(--c-pulse-light);
+    --c-mix-8: var(--c-shadow-dark);
+    --c-mix-9: var(--c-gray3);
+    --c-mix-10: var(--c-gray5);
+    --c-mix-11: var(--c-shadow-dark-subtle);
+    --c-mix-12: var(--c-glass-dark-subtle);
+    --c-mix-13: rgba(255, 255, 255, 0.3);
+    --c-mix-14: rgba(33, 33, 33, 0.3);
+    --c-glass-bg: var(--c-glass-dark-2);
+    --c-shine: var(--shine-effect);
+}
+:root {
+    --background: var(--c-light);
+    --foreground: var(--c-dark);
+    --c-mix-1: var(--c-gray1);
+    --c-mix-2: var(--c-gray3);
+    --c-mix-3: var(--c-gray4);
+    --c-mix-4: var(--c-overlay-light);
+    --c-mix-5: var(--c-nav-dark);
+    --c-mix-6: var(--c-glass-light);
+    --c-mix-7: var(--c-pulse-dark);
+    --c-mix-8: var(--c-shadow-light);
+    --c-mix-9: var(--c-gray5);
+    --c-mix-10: var(--c-gray2);
+    --c-mix-11: var(--c-shadow-light-subtle);
+    --c-mix-12: var(--c-glass-light-subtle);
+    --c-mix-13: rgba(255, 255, 255, 1);
+    --c-mix-14: rgba(237, 237, 237, 1);
+    --c-glass-bg: var(--c-glass-light-2);
+    --c-shine: var(--shine-effect-2);
+}
+:root {
+    --unit: 0.625rem;
+    --vh: 1vh;
+    --a-speed: 300ms;
+    --c-light: #FFF;
+    --c-gray1: #EEE;
+    --c-gray2: #CCC;
+    --c-gray3: #999;
+    --c-gray4: #666;
+    --c-gray5: #555;
+    --c-gray6: #222;
+    --c-dark: #111;
+    --c-overlay-light: rgb(0 0 0 / 0.5);
+    --c-overlay-dark: rgb(0 0 0 / 0.8);
+    --c-glass-light: rgba(255, 255, 255, 0.7);
+    --c-glass-dark: rgba(17, 17, 17, 0.7);
+    --c-glass-light-subtle: rgba(255, 255, 255, 0.9);
+    --c-glass-dark-subtle: rgba(17, 17, 17, 0.9);
+    --c-nav-light: rgb(255 255 255 / 0.5);
+    --c-nav-dark: rgb(0 0 0 / 0.5);
+    --c-success: #1b0;
+    --c-error: #f20;
+    --c-pulse-light: 255, 255, 255;
+    --c-pulse-dark: 0, 0, 0;
+    --c-shadow-dark: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+    --c-shadow-dark-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+    --c-glass-dark-2: rgba(0, 0, 0, 0.3);
+    --c-glass-light-2: rgba(0, 0, 0, 0.05);
+    --c-yellow: #FC0;
+    --c-orange: #F80;
+    --c-brown: #A63;
+    --c-red: #F20;
+    --c-pink: #F58;
+    --c-magenta: #B1C;
+    --c-violet: #80F;
+    --c-blue: #08F;
+    --c-cyan: #0BA;
+    --c-green: #0A0;
+    --c-lemon: #AC4;
+    --c-mono: var(--foreground);
+    --f-base: Inter, var(--f-sans);
+    --f-headings: Cormorant, var(--f-serif);
+    --f-body: Inter, var(--f-sans);
+    --f-sans: -apple-system, system-ui, BlinkMacSystemFont, "Helvetica", "Arial", sans-serif;
+    --f-serif: Georgia, "Times New Roman", Times, serif;
+    --f-mono: "Lucida Console", Monaco, monospace;
+    --l-title: 1.2;
+    --l-body: 1.6;
+    --t-xs: 10px;
+Show all properties (38 more)
+}
+[data-theme=dark] {
+    --background: var(--c-dark);
+    --foreground: var(--c-light);
+    --c-mix-1: var(--c-gray6);
+    --c-mix-2: var(--c-gray5);
+    --c-mix-3: var(--c-gray3);
+    --c-mix-4: var(--c-overlay-dark);
+    --c-mix-5: var(--c-nav-light);
+    --c-mix-6: var(--c-glass-dark);
+    --c-mix-7: var(--c-pulse-light);
+    --c-mix-8: var(--c-shadow-dark);
+    --c-mix-9: var(--c-gray3);
+    --c-mix-10: var(--c-gray5);
+    --c-mix-11: var(--c-shadow-dark-subtle);
+    --c-mix-12: var(--c-glass-dark-subtle);
+    --c-mix-13: rgba(255, 255, 255, 0.3);
+    --c-mix-14: rgba(33, 33, 33, 0.3);
+    --c-glass-bg: var(--c-glass-dark-2);
+    --c-shine: var(--shine-effect);
+}
+:root {
+    --background: var(--c-light);
+    --foreground: var(--c-dark);
+    --c-mix-1: var(--c-gray1);
+    --c-mix-2: var(--c-gray3);
+    --c-mix-3: var(--c-gray4);
+    --c-mix-4: var(--c-overlay-light);
+    --c-mix-5: var(--c-nav-dark);
+    --c-mix-6: var(--c-glass-light);
+    --c-mix-7: var(--c-pulse-dark);
+    --c-mix-8: var(--c-shadow-light);
+    --c-mix-9: var(--c-gray5);
+    --c-mix-10: var(--c-gray2);
+    --c-mix-11: var(--c-shadow-light-subtle);
+    --c-mix-12: var(--c-glass-light-subtle);
+    --c-mix-13: rgba(255, 255, 255, 1);
+    --c-mix-14: rgba(237, 237, 237, 1);
+    --c-glass-bg: var(--c-glass-light-2);
+    --c-shine: var(--shine-effect-2);
+}
+:root {
+    --unit: 0.625rem;
+    --vh: 1vh;
+    --a-speed: 300ms;
+    --c-light: #FFF;
+    --c-gray1: #EEE;
+    --c-gray2: #CCC;
+    --c-gray3: #999;
+    --c-gray4: #666;
+    --c-gray5: #555;
+    --c-gray6: #222;
+    --c-dark: #111;
+    --c-overlay-light: rgb(0 0 0 / 0.5);
+    --c-overlay-dark: rgb(0 0 0 / 0.8);
+    --c-glass-light: rgba(255, 255, 255, 0.7);
+    --c-glass-dark: rgba(17, 17, 17, 0.7);
+    --c-glass-light-subtle: rgba(255, 255, 255, 0.9);
+    --c-glass-dark-subtle: rgba(17, 17, 17, 0.9);
+    --c-nav-light: rgb(255 255 255 / 0.5);
+    --c-nav-dark: rgb(0 0 0 / 0.5);
+    --c-success: #1b0;
+    --c-error: #f20;
+    --c-pulse-light: 255, 255, 255;
+    --c-pulse-dark: 0, 0, 0;
+    --c-shadow-dark: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+    --c-shadow-dark-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+    --c-glass-dark-2: rgba(0, 0, 0, 0.3);
+    --c-glass-light-2: rgba(0, 0, 0, 0.05);
+    --c-yellow: #FC0;
+    --c-orange: #F80;
+    --c-brown: #A63;
+    --c-red: #F20;
+    --c-pink: #F58;
+    --c-magenta: #B1C;
+    --c-violet: #80F;
+    --c-blue: #08F;
+    --c-cyan: #0BA;
+    --c-green: #0A0;
+    --c-lemon: #AC4;
+    --c-mono: var(--foreground);
+    --f-base: Inter, var(--f-sans);
+    --f-headings: Cormorant, var(--f-serif);
+    --f-body: Inter, var(--f-sans);
+    --f-sans: -apple-system, system-ui, BlinkMacSystemFont, "Helvetica", "Arial", sans-serif;
+    --f-serif: Georgia, "Times New Roman", Times, serif;
+    --f-mono: "Lucida Console", Monaco, monospace;
+    --l-title: 1.2;
+    --l-body: 1.6;
+    --t-xs: 10px;
+Show all properties (38 more)
+}
+[data-theme=dark] {
+    --background: var(--c-dark);
+    --foreground: var(--c-light);
+    --c-mix-1: var(--c-gray6);
+    --c-mix-2: var(--c-gray5);
+    --c-mix-3: var(--c-gray3);
+    --c-mix-4: var(--c-overlay-dark);
+    --c-mix-5: var(--c-nav-light);
+    --c-mix-6: var(--c-glass-dark);
+    --c-mix-7: var(--c-pulse-light);
+    --c-mix-8: var(--c-shadow-dark);
+    --c-mix-9: var(--c-gray3);
+    --c-mix-10: var(--c-gray5);
+    --c-mix-11: var(--c-shadow-dark-subtle);
+    --c-mix-12: var(--c-glass-dark-subtle);
+    --c-mix-13: rgba(255, 255, 255, 0.3);
+    --c-mix-14: rgba(33, 33, 33, 0.3);
+    --c-glass-bg: var(--c-glass-dark-2);
+    --c-shine: var(--shine-effect);
+}
+:root {
+    --background: var(--c-light);
+    --foreground: var(--c-dark);
+    --c-mix-1: var(--c-gray1);
+    --c-mix-2: var(--c-gray3);
+    --c-mix-3: var(--c-gray4);
+    --c-mix-4: var(--c-overlay-light);
+    --c-mix-5: var(--c-nav-dark);
+    --c-mix-6: var(--c-glass-light);
+    --c-mix-7: var(--c-pulse-dark);
+    --c-mix-8: var(--c-shadow-light);
+    --c-mix-9: var(--c-gray5);
+    --c-mix-10: var(--c-gray2);
+    --c-mix-11: var(--c-shadow-light-subtle);
+    --c-mix-12: var(--c-glass-light-subtle);
+    --c-mix-13: rgba(255, 255, 255, 1);
+    --c-mix-14: rgba(237, 237, 237, 1);
+    --c-glass-bg: var(--c-glass-light-2);
+    --c-shine: var(--shine-effect-2);
+}
+:root {
+    --unit: 0.625rem;
+    --vh: 1vh;
+    --a-speed: 300ms;
+    --c-light: #FFF;
+    --c-gray1: #EEE;
+    --c-gray2: #CCC;
+    --c-gray3: #999;
+    --c-gray4: #666;
+    --c-gray5: #555;
+    --c-gray6: #222;
+    --c-dark: #111;
+    --c-overlay-light: rgb(0 0 0 / 0.5);
+    --c-overlay-dark: rgb(0 0 0 / 0.8);
+    --c-glass-light: rgba(255, 255, 255, 0.7);
+    --c-glass-dark: rgba(17, 17, 17, 0.7);
+    --c-glass-light-subtle: rgba(255, 255, 255, 0.9);
+    --c-glass-dark-subtle: rgba(17, 17, 17, 0.9);
+    --c-nav-light: rgb(255 255 255 / 0.5);
+    --c-nav-dark: rgb(0 0 0 / 0.5);
+    --c-success: #1b0;
+    --c-error: #f20;
+    --c-pulse-light: 255, 255, 255;
+    --c-pulse-dark: 0, 0, 0;
+    --c-shadow-dark: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+    --c-shadow-dark-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+    --c-glass-dark-2: rgba(0, 0, 0, 0.3);
+    --c-glass-light-2: rgba(0, 0, 0, 0.05);
+    --c-yellow: #FC0;
+    --c-orange: #F80;
+    --c-brown: #A63;
+    --c-red: #F20;
+    --c-pink: #F58;
+    --c-magenta: #B1C;
+    --c-violet: #80F;
+    --c-blue: #08F;
+    --c-cyan: #0BA;
+    --c-green: #0A0;
+    --c-lemon: #AC4;
+    --c-mono: var(--foreground);
+    --f-base: Inter, var(--f-sans);
+    --f-headings: Cormorant, var(--f-serif);
+    --f-body: Inter, var(--f-sans);
+    --f-sans: -apple-system, system-ui, BlinkMacSystemFont, "Helvetica", "Arial", sans-serif;
+    --f-serif: Georgia, "Times New Roman", Times, serif;
+    --f-mono: "Lucida Console", Monaco, monospace;
+    --l-title: 1.2;
+    --l-body: 1.6;
+    --t-xs: 10px;
+Show all properties (38 more)
+}
+[data-theme=dark] {
+    --background: var(--c-dark);
+    --foreground: var(--c-light);
+    --c-mix-1: var(--c-gray6);
+    --c-mix-2: var(--c-gray5);
+    --c-mix-3: var(--c-gray3);
+    --c-mix-4: var(--c-overlay-dark);
+    --c-mix-5: var(--c-nav-light);
+    --c-mix-6: var(--c-glass-dark);
+    --c-mix-7: var(--c-pulse-light);
+    --c-mix-8: var(--c-shadow-dark);
+    --c-mix-9: var(--c-gray3);
+    --c-mix-10: var(--c-gray5);
+    --c-mix-11: var(--c-shadow-dark-subtle);
+    --c-mix-12: var(--c-glass-dark-subtle);
+    --c-mix-13: rgba(255, 255, 255, 0.3);
+    --c-mix-14: rgba(33, 33, 33, 0.3);
+    --c-glass-bg: var(--c-glass-dark-2);
+    --c-shine: var(--shine-effect);
+}
+:root {
+    --background: var(--c-light);
+    --foreground: var(--c-dark);
+    --c-mix-1: var(--c-gray1);
+    --c-mix-2: var(--c-gray3);
+    --c-mix-3: var(--c-gray4);
+    --c-mix-4: var(--c-overlay-light);
+    --c-mix-5: var(--c-nav-dark);
+    --c-mix-6: var(--c-glass-light);
+    --c-mix-7: var(--c-pulse-dark);
+    --c-mix-8: var(--c-shadow-light);
+    --c-mix-9: var(--c-gray5);
+    --c-mix-10: var(--c-gray2);
+    --c-mix-11: var(--c-shadow-light-subtle);
+    --c-mix-12: var(--c-glass-light-subtle);
+    --c-mix-13: rgba(255, 255, 255, 1);
+    --c-mix-14: rgba(237, 237, 237, 1);
+    --c-glass-bg: var(--c-glass-light-2);
+    --c-shine: var(--shine-effect-2);
+}
+:root {
+    --unit: 0.625rem;
+    --vh: 1vh;
+    --a-speed: 300ms;
+    --c-light: #FFF;
+    --c-gray1: #EEE;
+    --c-gray2: #CCC;
+    --c-gray3: #999;
+    --c-gray4: #666;
+    --c-gray5: #555;
+    --c-gray6: #222;
+    --c-dark: #111;
+    --c-overlay-light: rgb(0 0 0 / 0.5);
+    --c-overlay-dark: rgb(0 0 0 / 0.8);
+    --c-glass-light: rgba(255, 255, 255, 0.7);
+    --c-glass-dark: rgba(17, 17, 17, 0.7);
+    --c-glass-light-subtle: rgba(255, 255, 255, 0.9);
+    --c-glass-dark-subtle: rgba(17, 17, 17, 0.9);
+    --c-nav-light: rgb(255 255 255 / 0.5);
+    --c-nav-dark: rgb(0 0 0 / 0.5);
+    --c-success: #1b0;
+    --c-error: #f20;
+    --c-pulse-light: 255, 255, 255;
+    --c-pulse-dark: 0, 0, 0;
+    --c-shadow-dark: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+    --c-shadow-dark-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+    --c-shadow-light-subtle: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+    --c-glass-dark-2: rgba(0, 0, 0, 0.3);
+    --c-glass-light-2: rgba(0, 0, 0, 0.05);
+    --c-yellow: #FC0;
+    --c-orange: #F80;
+    --c-brown: #A63;
+    --c-red: #F20;
+    --c-pink: #F58;
+    --c-magenta: #B1C;
+    --c-violet: #80F;
+    --c-blue: #08F;
+    --c-cyan: #0BA;
+    --c-green: #0A0;
+    --c-lemon: #AC4;
+    --c-mono: var(--foreground);
+    --f-base: Inter, var(--f-sans);
+    --f-headings: Cormorant, var(--f-serif);
+    --f-body: Inter, var(--f-sans);
+    --f-sans: -apple-system, system-ui, BlinkMacSystemFont, "Helvetica", "Arial", sans-serif;
+    --f-serif: Georgia, "Times New Roman", Times, serif;
+    --f-mono: "Lucida Console", Monaco, monospace;
+    --l-title: 1.2;
+    --l-body: 1.6;
+    --t-xs: 10px;
+Show all properties (38 more)
+}
+html {
+    transition: all var(--a-speed);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+html {
+    transition: all var(--a-speed);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+html {
+    transition: all var(--a-speed);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+html {
+    transition: all var(--a-speed);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+html {
+    transition: all var(--a-speed);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+html {
+    transition: all var(--a-speed);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+html {
+    transition: all var(--a-speed);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+html {
+    transition: all var(--a-speed);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+html {
+    transition: all var(--a-speed);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+html {
+    transition: all var(--a-speed);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+html {
+    transition: all var(--a-speed);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+html {
+    transition: all var(--a-speed);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+html {
+    transition: all var(--a-speed);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+html {
+    transition: all var(--a-speed);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+html {
+    transition: all var(--a-speed);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+html {
+    transition: all var(--a-speed);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+html {
+    height: 100%;
+}
+html {
+    transition: all var(--a-speed);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+html[Attributes Style] {
+    -webkit-locale: "en";
+}
+user agent stylesheet
+:root {
+    view-transition-name: root;
+}
+user agent stylesheet
+html {
+    display: block;
+}
+::selection {
+    background: var(--accent);
+    color: var(--c-light);
+}
+::selection {
+    background: rgba(0, 0, 0, 0);
+}
+::selection {
+    background: rgba(0, 0, 0, 0);
+}
+::selection {
+    background: rgba(0, 0, 0, 0);
+}
+::selection {
+    background: rgba(0, 0, 0, 0);
+}
+::selection {
+    background: rgba(0, 0, 0, 0);
+}
+::selection {
+    background: rgba(0, 0, 0, 0);
+}
+::selection {
+    background: rgba(0, 0, 0, 0);
+}
+::selection {
+    background: rgba(0, 0, 0, 0);
+}
+::selection {
+    background: rgba(0, 0, 0, 0);
+}
+::selection {
+    background: rgba(0, 0, 0, 0);
+}
+::selection {
+    background: rgba(0, 0, 0, 0);
+}
+::selection {
+    background: rgba(0, 0, 0, 0);
+}
+::selection {
+    background: rgba(0, 0, 0, 0);
+}
+::selection {
+    background: rgba(0, 0, 0, 0);
+}
+::selection {
+    background: rgba(0, 0, 0, 0);
+}
+::selection {
+    background: rgba(0, 0, 0, 0);
+}
+::selection {
+    background: rgba(0, 0, 0, 0);
+}
+
